@@ -17,5 +17,50 @@
 @endsection
 
 @section("main-content")
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        @if (!empty($categories) && $categories->count() > 0)
+                        <table class="table table-bordered">
+                            <thead class="thead-dark">
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Image</th>
+                            <th></th>
+                            </thead>
+                            <tbody>
+                            @foreach($categories as $category)
+                            <tr>
+                                <td>{{$category->id}}</td>
+                                <td>{{$category->name}}</td>
+                                <td>{{$category->image}}</td>
+                                <td class="text-center">
+                                    <a href="{{ route('admin.categories.edit', [$category->id]) }}">Sửa</a>
+                                    ||
+                                    <form action="{{ route('admin.categories.destroy', [$category->id]) }}" method="post">
+                                        {{ csrf_field() }}
+                                        {{ method_field('delete') }}
+                                        <input type="submit" value="Xóa">
+                                    </form>
+                                </td>
+                            </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
+                        @else
+                            <center>Data empty</center>
+                        @endif
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
 @endsection
 
