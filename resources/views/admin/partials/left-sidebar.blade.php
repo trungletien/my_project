@@ -39,7 +39,7 @@
                     <a href="#" class="nav-link {{Request::is('admin/categories/*') || Request::is('admin/categories') ? 'active' : ''}}">
                         <i class="fas fa-book"></i>
                         <p>
-                            Categories
+                            Category
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
