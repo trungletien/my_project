@@ -10,6 +10,7 @@ class CategoryController extends Controller
 {
     public function index()
     {
+        dd("test");
 //        dump(route('admin.categories.index'));die;
         return view("admin.pages.category.index");
     }
