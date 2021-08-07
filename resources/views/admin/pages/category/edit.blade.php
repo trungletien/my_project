@@ -23,7 +23,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <form action="{{route('admin.categories.update', [$category->id])}}" method="post" class="col-10 mx-auto">
+                        <form action="{{route('admin.categories.update', [$category->id])}}" method="post" class="col-10 mx-auto" enctype="multipart/form-data">
                             @csrf
                             @method('put')
                             <div class="form-group">

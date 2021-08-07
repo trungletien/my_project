@@ -23,7 +23,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <form action="{{route('admin.categories.store')}}" method="post" class="col-10 mx-auto">
+                        <form action="{{route('admin.categories.store')}}" method="post" class="col-10 mx-auto" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
                                 <label>Name category:</label>

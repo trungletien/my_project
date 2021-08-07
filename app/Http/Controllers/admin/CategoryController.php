@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Model\Category;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Route;
+use Illuminate\Support\Facades\Storage;
 
 class CategoryController extends Controller
 {
@@ -30,7 +31,12 @@ class CategoryController extends Controller
         $category = new Category();
 
         $category->name = $request->category_name;
-        $category->image = $request->category_image;
+
+        if ($request->hasFile('category_image')) {
+            $request->category_image->storeAs('', $request->category_image->getClientOriginalName());
+            $category->image = $request->category_image->getClientOriginalName();
+        }
+
         $category->save();
 
         return redirect()->route('admin.categories.index');
@@ -52,7 +58,11 @@ class CategoryController extends Controller
         $category = Category::find($id);
 
         $category->name = $request->category_name;
-        $category->image = $request->category_image;
+        if ($request->hasFile('category_image')) {
+            $request->category_image->storeAs('', $request->category_image->getClientOriginalName());
+            $category->image = $request->category_image->getClientOriginalName();
+        }
+
         $category->save();
 
         return redirect()->route('admin.categories.index');
@@ -61,6 +71,7 @@ class CategoryController extends Controller
     public function destroy($id)
     {
         $category = Category::find($id);
+        Storage::delete($category->image);
         $category->delete();
 
         return redirect()->route('admin.categories.index');

@@ -35,7 +35,7 @@
                             <tr>
                                 <td>{{$category->id}}</td>
                                 <td>{{$category->name}}</td>
-                                <td>{{$category->image}}</td>
+                                <td><img width="156px" height="200px" src="{{asset('storage/' . $category->image)}}"/></td>
                                 <td class="text-center">
                                     <a href="{{ route('admin.categories.edit', [$category->id]) }}">Sửa</a>
                                     ||
