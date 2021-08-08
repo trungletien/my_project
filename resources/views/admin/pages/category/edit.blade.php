@@ -33,6 +33,7 @@
                             <div class="form-group">
                                 <label>Image:</label>
                                 <input type="file" class="form-control-file" name="category_image" value="{{$category->image}}">
+                                <img class="mt-3" width="156px" height="200px" src="{{asset('storage/' . $category->image)}}"/>
                             </div>
                             <input type="submit" value="Update" class="btn btn-success float-right">
                         </form>
