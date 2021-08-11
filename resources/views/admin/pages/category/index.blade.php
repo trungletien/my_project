@@ -22,6 +22,11 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
+                        <form class="mt-2 mb-2" method="get" action="{{ route('admin.categories.index') }}">
+                            @csrf
+                            <input type="text" name="keySearch">
+                            <input type="submit" value="Tìm kiếm">
+                        </form>
                         @if (!empty($categories) && $categories->count() > 0)
                         <table class="table table-bordered">
                             <thead class="thead-dark">

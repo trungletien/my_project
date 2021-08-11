@@ -58,6 +58,31 @@
                         </li>
                     </ul>
                 </li>
+                <li class="nav-item
+                    {{Request::is('admin/products/*') || Request::is('admin/products') ? 'menu-is-opening menu-open' : ''}}
+                    ">
+                    <a href="#" class="nav-link {{Request::is('admin/products/*') || Request::is('admin/products') ? 'active' : ''}}">
+                        <i class="fas fa-book"></i>
+                        <p>
+                            Product
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{route('admin.products.index')}}" class="nav-link {{Request::is('admin/products') ? 'active' : ''}}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>List</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('admin.products.create')}}" class="nav-link {{Request::is('admin/products/create') ? 'active' : ''}}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

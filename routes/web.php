@@ -23,4 +23,6 @@ Route::get('/admin', function () {
 
 Route::group(['as' => 'admin.', 'prefix' => 'admin/'], function (){
     Route::resource('categories', admin\CategoryController::class);
+
+    Route::resource('products', admin\ProductController::class);
 });
